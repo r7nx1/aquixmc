@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | AquixMC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .title-font {
+            font-family: 'Oxanium', cursive;
+        }
+        .staff-card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+        }
+        .rank-owner {
+            border-top: 4px solid #f59e0b;
+            background: linear-gradient(to bottom, rgba(245, 158, 11, 0.1), transparent);
+        }
+        .rank-manager {
+            border-top: 4px solid #ef4444;
+            background: linear-gradient(to bottom, rgba(239, 68, 68, 0.1), transparent);
+        }
+        .rank-dev {
+            border-top: 4px solid #3b82f6;
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent);
+        }
+        .rank-tester {
+            border-top: 4px solid #10b981;
+            background: linear-gradient(to bottom, rgba(16, 185, 129, 0.1), transparent);
+        }
+        .rank-partner {
+            border-top: 4px solid #8b5cf6;
+            background: linear-gradient(to bottom, rgba(139, 92, 246, 0.1), transparent);
+        }
+        .staff-avatar {
+            border: 4px solid;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .owner-avatar {
+            border-color: #f59e0b;
+        }
+        .manager-avatar {
+            border-color: #ef4444;
+        }
+        .dev-avatar {
+            border-color: #3b82f6;
+        }
+        .tester-avatar {
+            border-color: #10b981;
+        }
+        .partner-avatar {
+            border-color: #8b5cf6;
+        }
+
+
+</style>
+
+<head>
+<body>
+<!-- Navigation -->
+<nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex items-center">
+        <img class="h-10" src="logo.png" alt="AquixMC Logo">
+        <div class="hidden md:flex ml-6 space-x-6">
+          <a href="index.html" class="nav-link text-gray px-3 py-2 text-sm font-medium">Home</a>
+          <a href="#" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Store</a>
+          <a href="legal.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Rules</a>
+          <a href="staff.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Staff</a>
+        </div>
+      </div>
+
+      <!-- Desktop Join Button -->
+      <div class="hidden md:block">
+        <a href="join.html">
+          <button class="bg-gray-800 hover:bg-gray-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition duration-300 border border-gray-700">
+            <i class="fas fa-sign-in-alt mr-2"></i>Join the server
+          </button>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+    <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Home</a>
+    <a href="#" class="block py-2 text-gray-300 hover:text-white">Store</a>
+    <a href="legal.html" class="block py-2 text-white">Rules</a>
+    <a href="staff.html" class="block py-2 text-gray-300 hover:text-white">Staff</a>
+    <a href="join.html" class="block py-2 text-blue-400 hover:text-white">Join the server</a>
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+
+    <!-- Staff Header -->
+    <section class="pt-40 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-full h-full opacity-20" style="background-image: url('https://i.imgur.com/YbqTv9E.png'); background-size: cover; background-position: center;"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-6 text-white">Meet the <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AquixMC Team</span></h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Our dedicated staff members work hard to maintain and improve your gaming experience
+            </p>
+        </div>
+    </section>
+
+    <!-- Staff Team -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Owner -->
+            <div class="mb-16">
+                <h2 class="title-font text-3xl font-bold mb-8 text-center text-yellow-400 border-b border-yellow-400/30 pb-4">
+                    <i class="fas fa-crown mr-3"></i> Owner
+                </h2>
+                <div class="grid md:grid-cols-1 gap-8 max-w-md mx-auto">
+                    <div class="staff-card rank-owner rounded-xl p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <img src="https://crafatar.com/avatars/d31088ec-b426-4404-aeab-4c652b2af1dd?size=128&overlay" alt="Aquix" class="staff-avatar owner-avatar w-24 h-24 rounded-full mb-4">
+                            <h3 class="text-2xl font-bold text-white mb-1">Aquix</h3>
+                            <div class="text-yellow-400 font-medium mb-4">Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manager -->
+            <div class="mb-16">
+                <h2 class="title-font text-3xl font-bold mb-8 text-center text-red-400 border-b border-red-400/30 pb-4">
+                    <i class="fas fa-star mr-3"></i> Manager
+                </h2>
+                <div class="grid md:grid-cols-1 gap-8 max-w-md mx-auto">
+                    <div class="staff-card rank-manager rounded-xl p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <img src="https://crafatar.com/avatars/853c80ef3c3749fdaa49938b674adae5?size=128&overlay" alt="Abbas" class="staff-avatar manager-avatar w-24 h-24 rounded-full mb-4">
+                            <h3 class="text-2xl font-bold text-white mb-1">Abbas</h3>
+                            <div class="text-red-400 font-medium mb-4">Manager</div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- Developers -->
+<div class="mb-16">
+    <h2 class="title-font text-3xl font-bold mb-8 text-center text-blue-400 border-b border-blue-400/30 pb-4">
+        <i class="fas fa-code mr-3"></i> Developers
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Developer: m7wq -->
+        <div class="staff-card rank-dev rounded-xl p-6">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://crafatar.com/avatars/a91bd3cf-9c15-47f2-af4f-c0a4b7295aaf?size=128&overlay" alt="m7wq" class="staff-avatar dev-avatar w-24 h-24 rounded-full mb-4">
+                <h3 class="text-2xl font-bold text-white mb-1">m7wq</h3>
+                <div class="text-blue-400 font-medium mb-4">Developer</div>
+                <div class="flex space-x-4"></div>
+            </div>
+        </div>
+
+        <!-- Developer: Karim -->
+        <div class="staff-card rank-dev rounded-xl p-6">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://crafatar.com/avatars/f4d94d81-dcdd-467a-9850-0f23eed7e0ef?size=128&overlay" alt="Karim" class="staff-avatar dev-avatar w-24 h-24 rounded-full mb-4">
+                <h3 class="text-2xl font-bold text-white mb-1">Karim</h3>
+                <div class="text-blue-400 font-medium mb-4">Developer</div>
+                <div class="flex space-x-4"></div>
+            </div>
+        </div>
+
+        <!-- Developer: Arezki -->
+        <div class="staff-card rank-dev rounded-xl p-6">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://crafatar.com/avatars/4e3ff2df-a38d-472e-a73a-07f6ecbe4c21?size=128&overlay" alt="Arezki" class="staff-avatar dev-avatar w-24 h-24 rounded-full mb-4">
+                <h3 class="text-2xl font-bold text-white mb-1">Arezki</h3>
+                <div class="text-blue-400 font-medium mb-4">Developer</div>
+                <div class="flex space-x-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Testers -->
+            <div class="mb-16">
+                <h2 class="title-font text-3xl font-bold mb-8 text-center text-green-400 border-b border-green-400/30 pb-4">
+                    <i class="fas fa-bug mr-3"></i> Testers
+                </h2>
+                <div class="grid md:grid-cols-1 gap-8 max-w-md mx-auto">
+                    <div class="staff-card rank-tester rounded-xl p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <img src="https://crafatar.com/avatars/0a894e43-af21-4517-be6f-1cce54cf0464?size=128&overlay" alt="Ali" class="staff-avatar tester-avatar w-24 h-24 rounded-full mb-4">
+                            <h3 class="text-2xl font-bold text-white mb-1">Ali</h3>
+                            <div class="text-green-400 font-medium mb-4">Tester</div>
+                            <div class="flex space-x-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<!-- Partners -->
+<div class="mb-16">
+    <h2 class="title-font text-3xl font-bold mb-8 text-center text-purple-400 border-b border-purple-400/30 pb-4">
+        <i class="fas fa-handshake mr-3"></i> Partners
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Partner: iBlueZx -->
+        <div class="staff-card rank-partner rounded-xl p-6">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://crafatar.com/avatars/a069d57d-6e8d-4e7d-939a-ae61cfbf23ef?size=128&overlay" alt="iBlueZx" class="staff-avatar partner-avatar w-24 h-24 rounded-full mb-4">
+                <h3 class="text-2xl font-bold text-white mb-1">iBlueZx</h3>
+                <div class="text-purple-400 font-medium mb-4">Partner</div>
+                <div class="flex space-x-4">
+                    <a href="https://www.youtube.com/@iBlueZx" class="text-gray-400 hover:text-purple-400"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner: VaATo -->
+        <div class="staff-card rank-partner rounded-xl p-6">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://crafatar.com/avatars/abf89c33-88e0-4ae8-87d0-3a9e87d584e2?size=128&overlay" alt="VaATo" class="staff-avatar partner-avatar w-24 h-24 rounded-full mb-4">
+                <h3 class="text-2xl font-bold text-white mb-1">VaATo</h3>
+                <div class="text-purple-400 font-medium mb-4">Partner</div>
+                <div class="flex space-x-4">
+                    <a href="https://www.youtube.com/@RealVaATo" class="text-gray-400 hover:text-purple-400"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+    <!-- Staff Applications -->
+    <section class="py-20 bg-gradient-to-br from-blue-900/30 to-purple-900/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="title-font text-4xl font-bold text-white mb-6">Interested in Joining Our Team?</h2>
+            <p class="text-xl text-gray-300 mb-10">
+                We're always looking for dedicated staff members to help improve AquixMC
+            </p>
+            <a href="https://dsc.gg/aquixmc" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-file-alt mr-3"></i> Apply for Staff
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/80 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">© 2023 AquixMC. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-2">Not affiliated with Mojang or Microsoft.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
