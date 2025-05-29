@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules & Policies | AquixMC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oxanium:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+                :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .legal-container {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .penalty-box {
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+        .penalty-box:hover {
+            transform: translateX(-5px);
+        }
+        .penalty-severe {
+            border-left-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+        .penalty-high {
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.05);
+        }
+        .penalty-medium {
+            border-left-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
+        }
+        .penalty-low {
+            border-left-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+                .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+        }
+
+
+</style>
+<head>
+<body class="bg-gray-900">
+<!-- New Navigation -->
+<nav class="bg-gray-950 text-white border-b border-gray-800 fixed w-full z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+    <!-- Logo -->
+    <div class="flex items-center space-x-4">
+      <img src="logo.png" alt="AquixMC Logo" class="h-10 w-auto">
+      <span class="font-bold text-xl tracking-wide text-white">AquixMC</span>
+    </div>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+      <a href="404.html" class="hover:text-blue-400 transition">Store</a>
+      <a href="legal.html" class="hover:text-blue-400 transition">Rules</a>
+      <a href="staff.html" class="hover:text-blue-400 transition">Staff</a>
+    </div>
+
+    <!-- Join Button -->
+    <div class="hidden md:block">
+      <a href="join.html" class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-full font-semibold text-sm transition shadow">
+        <i class="fas fa-play mr-2"></i> Join Now
+      </a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden px-6 py-4 bg-gray-900">
+    <a href="index.html" class="block py-2 hover:text-blue-400">Home</a>
+    <a href="404.html" class="block py-2 hover:text-blue-400">Store</a>
+    <a href="legal.html" class="block py-2 hover:text-blue-400">Rules</a>
+    <a href="staff.html" class="block py-2 hover:text-blue-400">Staff</a>
+    <a href="join.html" class="block py-2 text-blue-400 hover:text-white">Join Now</a>
+  </div>
+</nav>
+
+<script>
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  });
+</script>
+
+    <!-- Legal Content -->
+    <div class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="legal-container rounded-xl p-8 mb-12">
+            <h1 class="text-4xl font-bold text-center mb-6 text-blue-400">Server Rules & Policies</h1>
+            <p class="text-lg text-gray-300 mb-8 text-center">
+                By accessing AquixMC, you agree to comply with all server rules. Failure to follow these rules may result in disciplinary action.
+            </p>
+            
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 mb-12">
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-400 flex items-center">
+                        <i class="fas fa-info-circle mr-3"></i> General Information
+                    </h2>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Players must be at least 13 years old to play on the server</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Staff members reserve the right to modify these rules without prior notice</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>All Mojang/Microsoft EULA and ToS apply in addition to our rules</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-400 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-3"></i> Enforcement Policy
+                    </h2>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Penalties are applied at staff discretion based on offense severity</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Repeat offenses will result in escalated punishments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>All punishments are final unless appealed properly</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+<!-- Rules Section -->
+<div class="mb-16 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center text-white border-b border-gray-700 pb-4">
+        <i class="fas fa-gavel mr-2 sm:mr-3 text-blue-400"></i> Server Rules
+    </h2>
+
+    <div class="space-y-8">
+        <!-- Reusable Rule Card -->
+        <div class="penalty-box penalty-severe p-4 sm:p-6 rounded-lg">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-3 gap-3">
+                <i class="fas fa-skull-crossbones text-xl text-red-500"></i>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Severe Offenses</h3>
+            </div>
+            <ul class="space-y-3 pl-5 sm:pl-9 text-gray-300 text-sm sm:text-base">
+                <li class="flex items-start">
+                    <span class="font-semibold text-red-400 mr-2">Hacking/Cheating:</span>
+                    <span>Using any unauthorized mods, clients, or exploits</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-red-400 mr-2">DDoS/DoS Threats:</span>
+                    <span>Threatening or attempting to attack server infrastructure</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-red-400 mr-2">Extreme Toxicity:</span>
+                    <span>Racial slurs, death threats, or extreme harassment</span>
+                </li>
+            </ul>
+            <div class="mt-4 bg-gray-900/50 p-3 rounded-lg text-sm sm:text-base">
+                <span class="font-bold text-red-400 mr-2">Penalty:</span>
+                <span>Permanent ban (no appeals for extreme cases)</span>
+            </div>
+        </div>
+
+        <!-- Repeat the following blocks for other severities, just change the icon, text color, and content accordingly -->
+
+        <!-- High Severity -->
+        <div class="penalty-box penalty-high p-4 sm:p-6 rounded-lg">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-3 gap-3">
+                <i class="fas fa-exclamation-triangle text-xl text-yellow-500"></i>
+                <h3 class="text-lg sm:text-xl font-bold text-white">High Severity Offenses</h3>
+            </div>
+            <ul class="space-y-3 pl-5 sm:pl-9 text-gray-300 text-sm sm:text-base">
+                <li class="flex items-start">
+                    <span class="font-semibold text-yellow-400 mr-2">Account Sharing:</span>
+                    <span>Letting others play on your account</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-yellow-400 mr-2">Scamming:</span>
+                    <span>Attempting to steal accounts, items, or money</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-yellow-400 mr-2">Bug Exploitation:</span>
+                    <span>Abusing game-breaking bugs for unfair advantage</span>
+                </li>
+            </ul>
+            <div class="mt-4 bg-gray-900/50 p-3 rounded-lg text-sm sm:text-base">
+                <span class="font-bold text-yellow-400 mr-2">Penalty:</span>
+                <span>14–30 day ban + wipe (repeat: permanent ban)</span>
+            </div>
+        </div>
+
+        <!-- Medium Severity -->
+        <div class="penalty-box penalty-medium p-4 sm:p-6 rounded-lg">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-3 gap-3">
+                <i class="fas fa-user-slash text-xl text-blue-500"></i>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Medium Severity Offenses</h3>
+            </div>
+            <ul class="space-y-3 pl-5 sm:pl-9 text-gray-300 text-sm sm:text-base">
+                <li class="flex items-start">
+                    <span class="font-semibold text-blue-400 mr-2">Toxicity:</span>
+                    <span>Excessive harassment, bullying, or hate speech</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-blue-400 mr-2">Spamming:</span>
+                    <span>Excessive chat/command spam or advertising</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-blue-400 mr-2">Team Griefing:</span>
+                    <span>Intentionally sabotaging teammates in games</span>
+                </li>
+            </ul>
+            <div class="mt-4 bg-gray-900/50 p-3 rounded-lg text-sm sm:text-base">
+                <span class="font-bold text-blue-400 mr-2">Penalty:</span>
+                <span>1–7 day mute/ban (repeat: 14–30 days)</span>
+            </div>
+        </div>
+
+        <!-- Low Severity -->
+        <div class="penalty-box penalty-low p-4 sm:p-6 rounded-lg">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-3 gap-3">
+                <i class="fas fa-comment-slash text-xl text-green-500"></i>
+                <h3 class="text-lg sm:text-xl font-bold text-white">Low Severity Offenses</h3>
+            </div>
+            <ul class="space-y-3 pl-5 sm:pl-9 text-gray-300 text-sm sm:text-base">
+                <li class="flex items-start">
+                    <span class="font-semibold text-green-400 mr-2">Minor Toxicity:</span>
+                    <span>Mild insults or trash talk (context dependent)</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-green-400 mr-2">Minor Spam:</span>
+                    <span>Repeating messages or excessive caps</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="font-semibold text-green-400 mr-2">Staff Disrespect:</span>
+                    <span>Arguing with staff about valid punishments</span>
+                </li>
+            </ul>
+            <div class="mt-4 bg-gray-900/50 p-3 rounded-lg text-sm sm:text-base">
+                <span class="font-bold text-green-400 mr-2">Penalty:</span>
+                <span>Warning or 1–24 hour mute (repeat: 1–7 days)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Appeal Process -->
+            <div class="bg-gray-800/50 p-8 rounded-xl border border-blue-500/30">
+                <h2 class="text-3xl font-bold mb-6 text-center text-blue-400">
+                    <i class="fas fa-file-alt mr-3"></i> Ban Appeal Process
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 text-gray-300">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-white flex items-center">
+                            <i class="fas fa-check-circle text-blue-400 mr-3"></i> How to Appeal
+                        </h3>
+                        <ol class="space-y-4 list-decimal list-inside">
+                            <li>Join our Discord server</li>
+                            <li>Navigate to #ticket-support channel</li>
+                            <li>Use the provided template</li>
+                            <li>Wait for staff response (typically 1-3 days)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-white flex items-center">
+                            <i class="fas fa-times-circle text-red-400 mr-3"></i> What Not to Do
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-400 mt-1 mr-2"></i>
+                                <span>Don't create multiple appeals for the same ban</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-400 mt-1 mr-2"></i>
+                                <span>Don't harass staff about your appeal status</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-400 mt-1 mr-2"></i>
+                                <span>Don't lie in your appeal - we check evidence</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                        <i class="fab fa-discord mr-2"></i> Join Our Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/80 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">© 2023 AquixMC. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-2">Not affiliated with Mojang or Microsoft.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join AquixMC | Minecraft Server</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+                :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .title-font {
+            font-family: 'Oxanium', cursive;
+        }
+        .server-card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+        }
+        .ip-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .version-pill {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .step-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        .player-count::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+                .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    /* Countdown Banner - Disappears after 3 seconds */
+    .countdown-banner {
+        --primary-color: #f59e0b;
+        --secondary-color: #fbbf24;
+        --text-color: #1a1a1a;
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--text-color);
+        text-align: center;
+        padding: 1rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        z-index: 1000;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        line-height: 1.5;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        animation: 
+            slideIn 0.5s ease-out,
+            slideOut 0.5s ease-in 3s forwards;
+        transform-origin: top;
+    }
+    
+    .countdown-banner i {
+        font-size: 1.3em;
+        animation: pulse 1s infinite alternate;
+    }
+    
+    .countdown-number {
+        display: inline-block;
+        min-width: 1.5em;
+        font-weight: 800;
+        color: #d946ef;
+    }
+    
+    @keyframes slideIn {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(0); }
+    }
+    
+    @keyframes slideOut {
+        to { transform: translateY(-100%); opacity: 0; }
+    }
+    
+    @keyframes pulse {
+        from { transform: scale(1); }
+        to { transform: scale(1.2); }
+    }
+
+    #copyNotification {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+</style>
+
+<div class="countdown-banner" id="countdownBanner">
+    <i class="fas fa-rocket"></i>
+    <span>The server is under maintenance. <span class="countdown-number" id="countdown">3</span> seconds...</span>
+</div>
+
+<script>
+    // Countdown functionality
+    const banner = document.getElementById('countdownBanner');
+    const countdownElement = document.getElementById('countdown');
+    
+    let count = 3;
+    const countdown = setInterval(() => {
+        count--;
+        countdownElement.textContent = count;
+        
+        if (count <= 0) {
+            clearInterval(countdown);
+            // Banner will automatically disappear due to CSS animation
+        }
+    }, 1000);
+    
+    // Remove banner from DOM after animation completes
+    banner.addEventListener('animationend', (e) => {
+        if (e.animationName === 'slideOut') {
+            banner.remove();
+        }
+    });
+</script></head>
+<body>
+<!-- New Navigation -->
+<nav class="bg-gray-950 text-white border-b border-gray-800 fixed w-full z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+    <!-- Logo -->
+    <div class="flex items-center space-x-4">
+      <img src="logo.png" alt="AquixMC Logo" class="h-10 w-auto">
+      <span class="font-bold text-xl tracking-wide text-white">AquixMC</span>
+    </div>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+      <a href="404.html" class="hover:text-blue-400 transition">Store</a>
+      <a href="legal.html" class="hover:text-blue-400 transition">Rules</a>
+      <a href="staff.html" class="hover:text-blue-400 transition">Staff</a>
+    </div>
+
+    <!-- Join Button -->
+    <div class="hidden md:block">
+      <a href="join.html" class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-full font-semibold text-sm transition shadow">
+        <i class="fas fa-play mr-2"></i> Join Now
+      </a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden px-6 py-4 bg-gray-900">
+    <a href="index.html" class="block py-2 hover:text-blue-400">Home</a>
+    <a href="404.html" class="block py-2 hover:text-blue-400">Store</a>
+    <a href="legal.html" class="block py-2 hover:text-blue-400">Rules</a>
+    <a href="staff.html" class="block py-2 hover:text-blue-400">Staff</a>
+    <a href="join.html" class="block py-2 text-blue-400 hover:text-white">Join Now</a>
+  </div>
+</nav>
+
+<script>
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  });
+</script>
+
+
+
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-full h-full opacity-20" style="background-image: url('logo.png'); background-size: cover; background-position: center;"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-6 text-white">Join <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AquixMC</span> Today</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Experience the ultimate Minecraft gameplay with thousands of players worldwide
+            </p>
+            
+            <div class="flex flex-col items-center">
+                <div class="ip-box inline-flex items-center px-6 py-4 rounded-full mb-6">
+                    <span class="text-xl font-mono font-bold mr-4">play.aquixmc.com</span>
+                    <button class="text-blue-400 hover:text-blue-300 transition duration-200" onclick="copyIP()">
+                        <i class="far fa-copy text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="player-count bg-gray-800/50 px-4 py-2 rounded-full text-sm font-medium mb-8">
+                    <span class="font-bold text-green-400">100+</span> players online now
+                </div>
+                
+                <div class="version-pill px-4 py-2 rounded-full text-sm font-medium mb-8 inline-block">
+                    <i class="fas fa-check-circle mr-2 text-blue-400"></i> Supports 1.8 - 1.20
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-3xl font-bold text-white mb-4">How to Join</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Simple steps to start playing on AquixMC</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="server-card p-8 rounded-xl">
+                    <div class="step-icon w-16 h-16 rounded-full flex items-center justify-center text-2xl text-white mb-6 mx-auto">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Launch Minecraft</h3>
+                    <p class="text-gray-400 text-center">
+                        Open Minecraft Java Edition (version 1.8 to 1.20) on your computer
+                    </p>
+                </div>
+                
+                <div class="server-card p-8 rounded-xl">
+                    <div class="step-icon w-16 h-16 rounded-full flex items-center justify-center text-2xl text-white mb-6 mx-auto">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Add Server</h3>
+                    <p class="text-gray-400 text-center">
+                        Go to Multiplayer > Add Server and enter our IP
+                    </p>
+                </div>
+                
+                <div class="server-card p-8 rounded-xl">
+                    <div class="step-icon w-16 h-16 rounded-full flex items-center justify-center text-2xl text-white mb-6 mx-auto">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Start Playing</h3>
+                    <p class="text-gray-400 text-center">
+                        Join and select your favorite game mode to begin!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- System Requirements -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-3xl font-bold text-white mb-4">System Requirements</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Recommended specs for optimal gameplay</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="server-card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-desktop mr-3 text-blue-400"></i> Minimum Requirements
+                    </h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+                            <span>Minecraft Java Edition 1.8+</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+                            <span>Intel Core i3 or equivalent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+                            <span>4GB RAM (2GB allocated to Minecraft)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+                            <span>5Mbps internet connection</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="server-card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-rocket mr-3 text-purple-400"></i> Recommended Specs
+                    </h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                            <span>Minecraft Java Edition 1.8+</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                            <span>Intel Core i5 or equivalent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                            <span>8GB RAM (4-6GB allocated to Minecraft)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                            <span>OptiFine or Sodium mod installed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-900/30 to-purple-900/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="title-font text-4xl font-bold text-white mb-6">Ready to Play?</h2>
+            <p class="text-xl text-gray-300 mb-10">
+                Join thousands of players in the ultimate Minecraft experience
+            </p>
+            
+            <div class="ip-box inline-flex items-center px-6 py-4 rounded-full mb-8 mx-auto">
+                <span class="text-xl font-mono font-bold mr-4">play.aquixmc.com</span>
+                <button class="text-blue-400 hover:text-blue-300 transition duration-200" onclick="copyIP()">
+                    <i class="far fa-copy text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://dsc.gg/aquixmc" class="bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-full font-semibold transition duration-300 border border-gray-700 inline-flex items-center justify-center">
+                    <i class="fab fa-discord mr-3 text-indigo-400"></i> Join Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/80 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">© 2023 AquixMC. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-2">Not affiliated with Mojang or Microsoft.</p>
+            </div>
+        </div>
+    </footer>
+
+<!-- Copy Notification -->
+<div id="copyNotification" class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 pointer-events-none transition duration-500 z-50">
+  IP copied to clipboard!
+</div>
+
+
+<script>
+  function copyIP() {
+    const ip = 'play.aquixmc.com';
+    navigator.clipboard.writeText(ip).then(() => {
+      const notification = document.getElementById('copyNotification');
+      notification.classList.remove('opacity-0', 'pointer-events-none');
+      notification.classList.add('opacity-100');
+
+      setTimeout(() => {
+        notification.classList.add('opacity-0');
+        notification.classList.remove('opacity-100');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
